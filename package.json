@@ -1,0 +1,33 @@
+{
+  "name": "a-2019be-app",
+  "version": "0.0.1",
+  "description": "**A -** First, there will be an overview of the task at hand, this very first step will be necessary to show possible weak points (skill and tech-wise) and the need to study new lib APIs and/or their DSL. ### Q2: What technologies will be used?  - **BackEnd**  -- ExpressJS  -- PostgreSQL  -- Waterline*  -- JsonWebToken  -- Jest  - **FrontEnd**  -- ReactJS  -- AphroditeJS  -- Jest  -- lodash  -- ReactRouter  -- Redux, *et cetera*  -- TypeScript*",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/jest/bin/jest.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelmacielrsm/a-2019be-app.git"
+  },
+  "author": "Rafael Maciel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelmacielrsm/a-2019be-app/issues"
+  },
+  "homepage": "https://github.com/rafaelmacielrsm/a-2019be-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "waterline": "^0.13.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
+  }
+}
