@@ -1,11 +1,12 @@
 {
   "name": "a-2019be-app",
   "version": "0.0.1",
-  "description": "**A -** First, there will be an overview of the task at hand, this very first step will be necessary to show possible weak points (skill and tech-wise) and the need to study new lib APIs and/or their DSL. ### Q2: What technologies will be used?  - **BackEnd**  -- ExpressJS  -- PostgreSQL  -- Waterline*  -- JsonWebToken  -- Jest  - **FrontEnd**  -- ReactJS  -- AphroditeJS  -- Jest  -- lodash  -- ReactRouter  -- Redux, *et cetera*  -- TypeScript*",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/jest/bin/jest.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "setup": "node_modules/.bin/sequelize db:drop && node_modules/.bin/sequelize db:create && node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
