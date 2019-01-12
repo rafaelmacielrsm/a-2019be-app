@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "<USER_NAME>",
+    "password": "<PASSWORD>",
+    "database": "<DEVELOPMENT_DATABASE>",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false, 
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "<USER_NAME>",
+    "password": "<PASSWORD>",
+    "database": "<TEST_DATABASE>",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false, 
+    "operatorsAliases": false
+  }
+}

@@ -1,2 +1,4 @@
 node_modules
 .vscode
+config/db/config.json
+config/db/config.example.json
