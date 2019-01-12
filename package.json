@@ -4,7 +4,7 @@
   "description": "**A -** First, there will be an overview of the task at hand, this very first step will be necessary to show possible weak points (skill and tech-wise) and the need to study new lib APIs and/or their DSL. ### Q2: What technologies will be used?  - **BackEnd**  -- ExpressJS  -- PostgreSQL  -- Waterline*  -- JsonWebToken  -- Jest  - **FrontEnd**  -- ReactJS  -- AphroditeJS  -- Jest  -- lodash  -- ReactRouter  -- Redux, *et cetera*  -- TypeScript*",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/jest/bin/jest.js",
+    "test": "./node_modules/jest/bin/jest.js",
     "start": "node index.js"
   },
   "repository": {
@@ -22,7 +22,11 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
-    "waterline": "^0.13.6"
+    "node-fetch": "^2.3.0",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

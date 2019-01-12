@@ -1,10 +1,10 @@
-const createServer = require( '.' );
+const createServer = require( '../../server' );
 const request = require( 'supertest' );
 
 describe( 'GET /', () => {
   let server;
 
-  beforeAll(() => server = createServer( 3000, { verbose: false }));
+  beforeAll(() => server = createServer());
   afterAll(() => server && server.close());
 
   it( 'should respond with status 200', done => {

@@ -1,4 +1,4 @@
-const createServer = require( '.' );
+const createServer = require( '../../server' );
 var faker = require( 'faker' );
 
 describe( 'createServer function', () => {
@@ -6,7 +6,7 @@ describe( 'createServer function', () => {
     let port = faker.random.number({ min: 5000, max: 8000 });
 
     it( 'should successfully create a server with the specified port', done => {
-      let actual = createServer( port );
+      let actual = createServer( port, { verbose: false });
   
       expect( actual.address().port ).toEqual( port );
   
