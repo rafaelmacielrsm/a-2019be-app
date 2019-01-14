@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/jest/bin/jest.js",
     "start": "node index.js",
-    "setup": "node_modules/.bin/sequelize db:drop && node_modules/.bin/sequelize db:create && node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all"
+    "setup": "node_modules/.bin/sequelize db:drop && node_modules/.bin/sequelize db:create && node_modules/.bin/sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
     "node-fetch": "^2.3.0",
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",

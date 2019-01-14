@@ -1,25 +1,30 @@
 /*eslint no-console: "off"*/
+/** 
+ * @typedef {Object} http.Server
+*/
 var express = require( 'express' );
-var movieRouter = require( '../app/controllers/api/movies' );
+var movieRouter = require( '../app/controllers/movieRouter' );
 var app = express();
-// var waterline = require( '../config/database' );
 
 app.get( '/', function ( req, res ) {
-  res.status( 200 ).send( 'hello' );
+  res.sendStatus( 200 );
 });
 
 app.use( '/api/movies', movieRouter );
 
-/** @description Creates and start an express server  
+/**
+ * @description Creates and start an express server  
  * @param {number} port - The port the server should be listening on
  * @param {object} [options] - Options object
  * @param {boolean} [options.verbose] - The boolean flag to output log messages
- * @return {Express} 
+ * @resolves {http.Server} Node http.Server-like
  */
-module.exports = function( port, options = { verbose: false }){
-  var server = app.listen( port, () => {
-    if( options.verbose ) console.log( 'Server listening to requests on port %s', port );
+module.exports = function( port, options = { verbose: false, database: false }){
+  return new Promise(( resolve ) => {
+    var httpServer;
+    httpServer = app.listen( port, () => {
+      if( options.verbose ) console.log( 'Server listening to requests on port %s', port );
+      resolve( httpServer );
+    });
   });
-
-  return server;
 };

@@ -4,7 +4,7 @@ const request = require( 'supertest' );
 describe( 'GET /', () => {
   let server;
 
-  beforeAll(() => server = createServer());
+  beforeAll( async () => server = await createServer());
   afterAll(() => server && server.close());
 
   it( 'should respond with status 200', done => {
