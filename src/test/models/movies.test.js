@@ -1,17 +1,16 @@
 var movieFactory = require( '../factory/movies-factory' );
-var db = require( '../../app/models' );
+var { Movie: Subject, sequelize } = require( '../../app/models' );
 
 describe( 'properties', () => {
-  let subject = 'Movie';
   let movieInstance;
 
   beforeAll( async () => {
-    movieInstance = await movieFactory();
+    movieInstance = await Subject.create( await movieFactory());
   });
   
   afterAll( async () => {
-    await db.sequelize.getQueryInterface().bulkDelete( 'Movies' );
-    db.sequelize.close();
+    await sequelize.getQueryInterface().bulkDelete( Subject.tableName );
+    sequelize.close();
   });
 
   it( 'should have the specified properties', () => {
@@ -24,12 +23,14 @@ describe( 'properties', () => {
 
   describe( '.title', () => {
     describe( 'when using an empty string as value', async () => {
-      it( 'should throw an error', () => {
+      it( 'should throw an error', done => {
         expect.assertions( 1 );
 
-        return db[ subject ].create({ title: '' })
-          .catch(({ errors: [ error ] }) => (
-            expect( error ).toHaveProperty( 'type', 'Validation error' )));
+        return Subject.create({ title: '' })
+          .catch(({ errors: [ error ] }) => {
+            expect( error ).toHaveProperty( 'type', 'Validation error' );
+            done();
+          });
       });
     });
   });

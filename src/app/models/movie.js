@@ -1,6 +1,9 @@
 'use strict';
 /* eslint no-unused-vars: off */
-module.exports = ( sequelize, DataTypes ) => {
+module.exports.sortableFields = [ 'id', 'title', 'updatedAt', 'createdAt' ];
+module.exports.searchableField = [ 'title', 'cast' ];
+
+module.exports.default = ( sequelize, DataTypes ) => {
   const Movie = sequelize.define( 'Movie', {
     title: {
       type: DataTypes.STRING,
@@ -22,9 +25,16 @@ module.exports = ( sequelize, DataTypes ) => {
     plot: DataTypes.TEXT,
     trailer: DataTypes.STRING,
     poster: DataTypes.STRING
-  }, {});
+  }, {
+    scopes: {
+      whitelist: { 
+        attributes: { exclude: [ 'createdAt', 'updatedAt' ]}
+      }
+    }
+  });
   Movie.associate = function( models ) {
     // associations can be defined here
   };
+
   return Movie;
 };

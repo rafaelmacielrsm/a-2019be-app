@@ -1,8 +1,6 @@
 var models = require( '../../app/models' );
 var Faker = require( 'faker' );
 
-// Movie.sync().then();
-
 /**
  * Generate a movie object
  * @param  {Object} [props] Properties to use to create an movie.
@@ -36,5 +34,5 @@ async function movieData( props = {}){
  * @return {Object} Sequelize Movie Instance.
  */
 module.exports = async ( props = {}) => {
-  return models.Movie.create( await movieData( props ));
+  return await movieData( props );
 };
