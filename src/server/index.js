@@ -3,12 +3,15 @@
  * @typedef {Object} http.Server
 */
 var express = require( 'express' );
-var movieRouter = require( '../app/controllers/movieRouter' );
+var movieRouter = require( '../app/controllers/moviesRouter' );
+var bodyParser = require( 'body-parser' );
 var app = express();
 
 app.get( '/', function ( req, res ) {
   res.sendStatus( 200 );
 });
+
+app.use( bodyParser.json());
 
 app.use( '/api/movies', movieRouter );
 

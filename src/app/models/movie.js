@@ -2,15 +2,25 @@
 /* eslint no-unused-vars: off */
 module.exports.sortableFields = [ 'id', 'title', 'updatedAt', 'createdAt' ];
 module.exports.searchableField = [ 'title', 'cast' ];
+module.exports.permitedFields = [ 
+  'title', 
+  'cast', 
+  'plot', 
+  'releaseDate', 
+  'poster',
+  'trailer'
+];
 
 module.exports.default = ( sequelize, DataTypes ) => {
   const Movie = sequelize.define( 'Movie', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
       validate: {
         max: 255,
-        notEmpty: true,
+        notEmpty: {
+          args: [ false ],
+          msg: 'cannot be empty'
+        },
       } 
     },
     genre: {
@@ -25,13 +35,7 @@ module.exports.default = ( sequelize, DataTypes ) => {
     plot: DataTypes.TEXT,
     trailer: DataTypes.STRING,
     poster: DataTypes.STRING
-  }, {
-    scopes: {
-      whitelist: { 
-        attributes: { exclude: [ 'createdAt', 'updatedAt' ]}
-      }
-    }
-  });
+  }, {});
   Movie.associate = function( models ) {
     // associations can be defined here
   };

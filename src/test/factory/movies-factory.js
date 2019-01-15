@@ -1,4 +1,3 @@
-var models = require( '../../app/models' );
 var Faker = require( 'faker' );
 
 /**
@@ -34,5 +33,6 @@ async function movieData( props = {}){
  * @return {Object} Sequelize Movie Instance.
  */
 module.exports = async ( props = {}) => {
-  return await movieData( props );
+  let data = await movieData( props );
+  return data;
 };
